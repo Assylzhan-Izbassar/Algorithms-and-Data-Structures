@@ -68,15 +68,8 @@ struct DoubleLinkedList
                 push_back(x);
                 return;
             }
-            int index = 1;
-            Node* temp = head;
 
-            while(index != position)
-            {
-                temp = temp->next;
-                index = index + 1;
-            }
-
+            Node* temp = findPostion(position);
             Node* newElement = new Node(x);
 
             temp->prev->next = newElement;
@@ -85,6 +78,59 @@ struct DoubleLinkedList
             temp->prev = newElement;
 
             size = size + 1;
+        }
+
+        Node* findPostion(int position)
+        {
+            int index = 1;
+            Node* temp = head;
+
+            while(temp != NULL)
+            {
+                if(index != position)
+                    break;
+                temp = temp->next;
+                index = index + 1;
+            }
+            return temp;
+        }
+
+        void remove(int x)
+        {
+            Node* checker = find(x);
+            if(checker != NULL)
+                remove(checker);
+            else
+            {
+                cout << "This element did not contained in the List!" << endl;
+                return;
+            }
+            size--;
+        }
+
+        void remove(Node* element)
+        {
+            Node* nextEl = element->next;
+            Node* prevEl = element->prev;
+            element->prev->next = nextEl;
+            element->next->prev = prevEl;
+            delete(element);
+        }
+
+        Node* find(int x)
+        {
+            Node* result = NULL;
+            Node* temp = head;
+            while(temp != NULL)
+            {
+                if(temp->getValue() == x)
+                {
+                    result = temp;
+                    break;
+                }
+                temp = temp->next;
+            }
+            return result;
         }
 
         void printList()
@@ -123,10 +169,14 @@ int main()
     {
         dll.push_back(i);
     }
-
-    dll.insert(5,6);
     cout << dll.getSize() << endl;
-    dll.printList();
+        dll.printList();
+    dll.insert(5,6);//insert(index, value);
+    cout << dll.getSize() << endl;
+        dll.printList();
+    dll.remove(9);
+    cout << dll.getSize() << endl;
+        dll.printList();
 
     return 0;
 }
