@@ -1,11 +1,9 @@
 # Algorithms-and-Data-Structures
 
-week_6:
-    Insertion-Sort
-
-week_10:
-    Knuth-Morris-Pratt [KMP] 
-    Aho-Corasick [Trie]
-
-week_14:
-    TopSort
+**Week 6:**
+- [Insertion-Sort]() <br/>
+**Week 10:** 
+- [Knuth-Morris-Pratt]() (KMP)
+- [Aho-Corasick]() (Trie)<br/>
+**Week 14:**
+- [TopSort]()
