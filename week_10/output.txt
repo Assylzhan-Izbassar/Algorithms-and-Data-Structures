@@ -1,0 +1,19 @@
+1	
+A vertex is: /A. Is it end? No. A vertex is: /J. Is it end? No. A vertex is: /T. Is it end? No. 
+A vertex is: /Al. Is it end? No. A vertex is: /An. Is it end? No. 
+A vertex is: /Ali. Is it end? No. 
+A vertex is: /Alic. Is it end? No. 
+A vertex is: /Alice. Is it end? Yes. 
+
+A vertex is: /Ann. Is it end? No. 
+A vertex is: /Anne. Is it end? Yes. 
+
+A vertex is: /Jo. Is it end? No. 
+A vertex is: /Joh. Is it end? No. 
+A vertex is: /John. Is it end? Yes. 
+
+A vertex is: /Ti. Is it end? No. A vertex is: /To. Is it end? No. 
+A vertex is: /Tim. Is it end? Yes. 
+
+A vertex is: /Tom. Is it end? Yes. 
+

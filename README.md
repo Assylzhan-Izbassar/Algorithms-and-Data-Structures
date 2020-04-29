@@ -5,6 +5,7 @@ week_6:
 
 week_10:
     Knuth-Morris-Pratt [KMP] 
+    Aho-Corasick [Trie]
 
 week_14:
     TopSort
