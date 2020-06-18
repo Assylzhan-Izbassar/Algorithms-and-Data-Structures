@@ -29,7 +29,7 @@ int main(){
 
     for(size_t i=0; i < pi.size(); ++i){
         if(pi[i] == t.size()){
-            printf("%lu ", i - 2*t.size());
+            printf("%lu\n", i - 2*t.size());
         }
     }
     return 0;
