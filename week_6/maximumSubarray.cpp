@@ -6,7 +6,8 @@ using namespace std;
 struct indices{
 
     private:
-        int low, high, sum;
+        int low, high;
+        int sum;
 
     public:
         indices(int _low, int _high, int _sum){
