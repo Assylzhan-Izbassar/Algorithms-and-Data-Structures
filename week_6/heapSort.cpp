@@ -1,3 +1,13 @@
+/*
+    The (binary) heap data structure is an array object that we can view as a nearly complete binary tree.
+Each node of the tree corresponds to an element of the array. There are two kinds of binary heaps: max-heaps and min-heaps. 
+In both kinds, the values in the nodes satisfy a heap property, the specifics of which depend on the kind of heap.
+In a max-heap, the max-heap property is that for every node i other than the root,
+    A[parent(i)] ≥ A[i],
+that is, the value of a node is at most the value of its parent.
+
+*/
+
 #include <iostream>
 
 using namespace std;
@@ -22,20 +32,20 @@ class Heap{
             return i/2;
         }
         size_t left(size_t i){
-            return 2*i + 1;
+            return 2*i;
         }
         size_t right(size_t i){
-            return 2*i + 2;
+            return 2*i+1;
         }
-        void max_heapify(int* arr, size_t i);
-        void build_max_heap(int* arr, size_t n);
-        void heap_sort(int* arr, size_t n);
+        void max_heapify(int* arr, size_t i);// runs in O(lg(n)) time, is the key to maintaining the max-heap property.
+        void build_max_heap(int* arr, size_t n);// runs in linear time, produces a max- heap from an unordered input array.
+        void heap_sort(int* arr, size_t n);// runs in O(n*lg(n)) time, sorts an array in place.
 };
 
 void Heap::max_heapify(int* arr, size_t i){
 
-    size_t l = Heap::left(i);
-    size_t r = Heap::right(i);
+    size_t l = left(i)+1;
+    size_t r = right(i)+1;
 
     if(l < heap_size && arr[l] > arr[i])
         largest = l;
