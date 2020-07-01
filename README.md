@@ -4,6 +4,7 @@
 
 >[Insertion-Sort](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/insertionSort.cpp)<br/>
 >[Maximum-Subarray](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/maximumSubarray.cpp)<br/>
+>[Heap-Sort](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/heapSort.cpp) <br/>
 
 **Week 10:**<br/>
 
