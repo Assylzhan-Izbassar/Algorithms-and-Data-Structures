@@ -5,7 +5,8 @@
 >[Insertion-Sort](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/insertionSort.cpp)<br/>
 >[Maximum-Subarray](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/maximumSubarray.cpp)<br/>
 >[Heap-Sort](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/heapSort.cpp) <br/>
->[Priority-Queue](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/priorityQueue.cpp)<br/>
+>[Priority-Queue](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/priorityQueue.cpp) <br/>
+
 **Week 10:**<br/>
 
 >[Knuth-Morris-Pratt](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_10/KMP.cpp) (KMP)<br/>
