@@ -20,9 +20,9 @@ bool find(vector<int> &a, int x){
     return false;
 }
 
-int find_lower(vector<int> &a, int x){
-    int l = -1;
-    int r = a.size();
+int find_lower(vector<int> &a, int x){ //max i: a[i] <= x
+    int l = -1; //a[l] <= x
+    int r = (int)a.size(); // a[r] > x 
 
     while(r > l + 1){
         int mid = l + (r-l)/2;
@@ -34,7 +34,25 @@ int find_lower(vector<int> &a, int x){
     }
     return l;
 }
+
+int find_upper(vector<int> &a, int x){ // min i: a[i] >= x
+    int l = -1; // a[l] < x
+    int r = a.size(); // a[r] >= x
+
+    while(r > l + 1){
+        int mid = l + (r - l)/2;
+        if(a[mid] < x){
+            l = mid;
+        }else{
+            r = mid;
+        }
+    }
+    return r;
+}
+
 int main(){
+
+    ios::sync_with_stdio(false);
 
     size_t n,k;
     scanf("%ld %ld", &n, &k);
@@ -47,7 +65,7 @@ int main(){
 
     while(k--){
         cin >> x;
-        cout << find_lower(v,x) + 1 << endl;
+        cout << find_upper(v,x) + 1 << endl;
     }
     return 0;
 }
