@@ -1,5 +1,9 @@
 # Algorithms-and-Data-Structures
 
+**Week 4:**<br/>
+
+>[Binary-Search](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_4/binary_search.cpp)<br/>
+
 **Week 6:**<br/>
 
 >[Insertion-Sort](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/insertionSort.cpp)<br/>
