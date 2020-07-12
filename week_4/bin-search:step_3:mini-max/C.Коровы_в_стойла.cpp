@@ -3,30 +3,36 @@
 
 using namespace std;
 
-bool f(vector<double> &x, long long T){
+bool f(vector<double> &x, int k, long long D){
 
-    long long l1,l2,r1,r2;
+    long long cows = 1;
+    long long min = 1e12;
+    long long distance = 0;
 
-    l1 = x[0] - T;
-    l2 = x[1] - T;
-    r1 = x[0] + T;
-    r2 = x[1] + T;
-
-    if(max(l1,l2) > min(r1,r2))
-        return false;
-    else{
-        l1 = max(l1,l2);
-        r1 = min(r1,r2);
+    for(int i=x.size() - 1; i > 0; --i){    
+        if(distance == 0){
+            for(int j=i-1; j >= 0; --j){
+                if((x[i]-x[j]) <= min){
+                    if(x[i] - x[j] >= D){
+                        min = x[i] - x[j];
+                        cows++;
+                        i = j + 1;
+                        distance = 0;
+                        cout << "When D is: "<< D <<  " index => " <<  j << endl;
+                        break;
+                    }else{
+                        distance = x[i] - x[j];
+                    }
+                }
+            }
+        }
     }
-    for(size_t i=2; i < x.size()-1; ++i){
-        l2 = x[i] - T;
-        r2 = x[i] + T;
-        if(max(l1,l2) > min(r1,r2))
-            return false;
-        l1 = max(l1,l2);
-        r1 = min(r1,r2);
+    if(distance < min){
+        min = distance;
+        cows++;
     }
-    return true;
+    cout << "When D is: "<< D <<  " min => " <<  min << " cows => " << cows << endl;
+    return min >= D && cows <= k;
 }
 
 int main(){
@@ -35,20 +41,19 @@ int main(){
     cin >> n >> k;
 
     vector<double> v(n);
-    vector<bool> used(k,false);
 
     for(size_t i=0; i < n; ++i) cin >> v[i];
 
-    long long l = -1;
-    long long r = 1e9+1;
+    long long l = 0;
+    long long r = 21;
 
     while(r > l + 1){
-        long long T = l + (r-l)/2;
+        long long D = l + (r-l)/2;
 
-        if(f(v,T)){
-            l = T;
+        if(f(v,k,D)){
+            l = D;
         }else{
-            r = T;
+            r = D;
         }
     }
     cout << l << endl;

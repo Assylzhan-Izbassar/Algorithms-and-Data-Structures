@@ -10,27 +10,23 @@ bool f(string t, string p, vector<int> &a, int mid){
     for(size_t i=1; i <= mid; ++i){
         used[a[i-1]-1] = true;
     }
+    int i = 0;
+    int j = 0;
 
-    vector<bool> check(p.size(), false);
+    vector<bool> check(p.size(), 0);
 
-    size_t i = 0;
-    size_t j = 0;
-    while(i < p.size()){
-        while(j < t.size()){
-            if(t[j] == p[i] && !used[j]){
-                check[i] = true;
-                break;
-            }
+    while(i < t.size()){
+        if(t[i] == p[j] && !used[i]){
+            check[j] = true;
             j++;
         }
         i++;
     }
-
     bool isOkay = true;
 
-    for(size_t i=0; i < check.size(); ++i){
+    for(size_t i=0; i < check.size(); ++i)
         isOkay *= check[i];
-    }
+
     return isOkay;
 }
 
@@ -45,11 +41,11 @@ int main(){
 
     for(size_t i=0; i < t.size(); ++i)  cin >> v[i];
 
-    int l = 0;
-    int r = t.size()+1;
+    long long l = 0;
+    long long r = t.size() + t.size();
 
     while(r > l + 1){
-        int mid = l + (r-l)/2;
+        long long mid = l + (r-l)/2;
 
         if(f(t,p,v,mid)){
             l = mid;

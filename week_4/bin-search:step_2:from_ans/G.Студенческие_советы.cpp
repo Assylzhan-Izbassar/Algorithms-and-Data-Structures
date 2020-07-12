@@ -4,24 +4,25 @@
 
 using namespace std;
 
-bool f(vector<long long> &a, int k, int mid){
+typedef long long ll;
 
-    int count_zeros = 0;   
-    int total_needs = k * mid;
+bool f(vector<ll> &a, int k, int x){
+    vector<ll> t(a.size());
 
-    for(size_t i=0; i < a.size(); ++i){
-        if(total_needs == 0)
-            break;
-        if(total_needs > 0 && a[i] > 0){
-            total_needs--;
-            a[i]--;
-        }
-        if(a[i] == 0){
-            count_zeros++;
-        }
+    for(size_t i=0; i < a.size(); ++i)
+        t[i] = a[i];
+
+    ll min = 0;
+    for(size_t i=0; i < x; ++i){
+        min = t[i];
+        for(size_t j=i; j < t.size(); ++j)
+            t[j] -= min; 
     }
+    size_t cnt = 0;
+    while(!t[cnt])
+        cnt++;
 
-    return (a.size() - count_zeros) >= k;
+    return a.size() - cnt + 1 >= k;
 }
 
 int main(){
@@ -30,14 +31,14 @@ int main(){
 
     int k,n;
     cin >> k >> n;
-    vector<long long> a(n);
+    vector<ll> a(n);
 
     for(size_t i=0; i < a.size(); ++i) cin >> a[i];
 
-    sort(a.begin(), a.end());
+    sort(begin(a), end(a));
 
     int l = -1;
-    int r = n + 1;
+    int r = n + n;
     while(r > l + 1){
         int mid = l + (r-l)/2;
 
