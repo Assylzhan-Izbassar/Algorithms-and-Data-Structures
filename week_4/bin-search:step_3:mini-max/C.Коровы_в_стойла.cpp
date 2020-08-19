@@ -3,57 +3,39 @@
 
 using namespace std;
 
-bool f(vector<double> &x, int k, long long D){
-
-    long long cows = 1;
-    long long min = 1e12;
-    long long distance = 0;
-
-    for(int i=x.size() - 1; i > 0; --i){    
-        if(distance == 0){
-            for(int j=i-1; j >= 0; --j){
-                if((x[i]-x[j]) <= min){
-                    if(x[i] - x[j] >= D){
-                        min = x[i] - x[j];
-                        cows++;
-                        i = j + 1;
-                        distance = 0;
-                        cout << "When D is: "<< D <<  " index => " <<  j << endl;
-                        break;
-                    }else{
-                        distance = x[i] - x[j];
-                    }
-                }
-            }
+bool f(vector<int> &x, int k, int d){
+    int cows = 1;
+    int i = 0;
+    for(int j=1; j < x.size(); ++j){
+        if(x[j] - x[i] >= d){
+            cows++;
+            i = j;
         }
     }
-    if(distance < min){
-        min = distance;
-        cows++;
-    }
-    cout << "When D is: "<< D <<  " min => " <<  min << " cows => " << cows << endl;
-    return min >= D && cows <= k;
+    if(cows >= k)
+        return true;
+    return false;
 }
 
 int main(){
 
-    int n, k;
+    int n,k;
     cin >> n >> k;
 
-    vector<double> v(n);
+    vector<int> v(n);
 
-    for(size_t i=0; i < n; ++i) cin >> v[i];
+    for(int i=0; i < n; ++i) cin >> v[i];
 
-    long long l = 0;
-    long long r = 21;
+    int l = 0;
+    int r = 1e9;
 
     while(r > l + 1){
-        long long D = l + (r-l)/2;
+        int d = l + (r-l)/2;
 
-        if(f(v,k,D)){
-            l = D;
+        if(f(v, k, d)){
+            l = d;
         }else{
-            r = D;
+            r = d;
         }
     }
     cout << l << endl;
