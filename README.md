@@ -26,4 +26,4 @@
 
 **Week 15:**<br/>
 
->[Bellman-Ford](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_15/graph-theory:Bellman-Ford/%E2%84%9695.%D0%A4%D0%BB%D0%BE%D0%B9%D0%B4_%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B.cpp)<br/>
+>[Bellman-Ford](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_15/graph-theory:Bellman-Ford/%E2%84%96178.%D0%A4%D0%BE%D1%80%D0%B4-%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD.cpp)<br/>
