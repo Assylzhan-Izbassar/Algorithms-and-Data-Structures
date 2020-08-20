@@ -16,6 +16,9 @@
 >[Knuth-Morris-Pratt](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_10/KMP.cpp) (KMP)<br/>[Z-Function](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_10/Z-function:step_1/A.Наидлиннейший_палиндромный_префикс-1.cpp)<br/>
 >[Aho-Corasick](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_10/Trie.cpp) (Trie)
 
+**Week 13:**<br/>
+>[Depth-First-Search](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_13/graph-thory:dfs/%E2%84%96164.cpp) (DFS)
+
 **Week 14:**<br/>
 
 >[Segment-Tree](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_14/segment-tree:step_1/A.Дерево_отрезков_на_сумму.cpp)<br/>
