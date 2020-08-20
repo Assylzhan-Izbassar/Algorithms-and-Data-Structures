@@ -27,72 +27,69 @@ using namespace std;
 #define all(c) c.begin(),c.end()
 typedef long long ll;
 typedef vector<int> vi;
-typedef vector<bool> vb;
 
-void print(vi &a){
-    for(int i=0; i < a.size(); ++i){
-        cout << a[i] << " ";
-    }
-    cout << endl;
-}
-void print(vector<ll> &a){
+void print(vector<int> &a){
     for(int i=0; i < a.size(); ++i){
         cout << a[i] << " ";
     }
     cout << endl;
 }
 
+int n;
 vector<vi> gr;
 vi dist;
-int n;
-const int INF = 1e9;
+const int INF = 100000;
 
-bool bellman_ford(int x){
+void bellman_ford(int x){
     dist = vi(n, INF);
     dist[x] = 0;
 
-    for(int i=0; i < n-1; ++i){
-        for(int v = 0; v < n; ++v){
+    vi p(n, -1);
+    int s = -1;
+
+    for(int i=0; i < n; ++i){
+        for(int v=0; v < n; ++v){
             for(int u=0; u < n; ++u){
-                dist[u] = min(dist[u], dist[v] + gr[v][u]);
+                if(dist[v] < INF){
+                    if(dist[u] > dist[v] + gr[v][u]){
+                        dist[u] = max(-INF, dist[v] + gr[v][u]);
+                        p[u] = v;
+                        s = u; 
+                    }
+                }
             }
         }
     }
-    //check for negative cycle
-    //this is nth relaxation 
-    for(int v = 0; v < n; ++v){
-        for(int u=0; u < n; ++u){
-            if(dist[u] > dist[v] + gr[v][u]){
-                return true;
-            }
+
+    if(s == -1){
+        cout << "NO\n";
+    }else{
+        int y = s;
+        for(int i=0; i < n; ++i){
+            y = p[y];
         }
+        vi path;
+        for(int cur = y; ; cur = p[cur]){
+            path.pb(cur);
+            if(cur == y && path.size() > 1) break;
+        }
+        reverse(all(path));
+        cout << "YES\n";
+        print(path);
     }
-    return false;
+
 }
 
 void test_case(){
+
     cin >> n;
 
-    gr = vector<vi>(n, vi(n));
+    gr = vector<vi> (n, vi(n));
 
     for(int i=0; i < n; ++i)
         for(int j=0; j < n; ++j)
             cin >> gr[i][j];
-
-    for(int i=0; i < n; ++i){
-        for(int j=0; j < n; ++j){
-            if(gr[i][j] == 1) gr[i][j] = -1;
-            else gr[i][j] = 1e9;
-        }
-    }
-
-    for(int i=0; i < n; ++i){
-        if(bellman_ford(i)){
-            cout << 1 << endl;
-            return;
-        }
-    }
-    cout << 0 << endl;
+    bellman_ford(0);
 }
 
 int main(){
@@ -106,10 +103,7 @@ int main(){
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int t = 1; 
-    // cin >> t;
-    while(t--)
-        test_case();
+    test_case();
 
     return 0;
 }
