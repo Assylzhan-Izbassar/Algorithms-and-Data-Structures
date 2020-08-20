@@ -3,7 +3,7 @@
 
 using namespace std;
 
-long long n;
+int n;
 vector<vector<int> > gr;
 vector<long long> dist;
 const int INF = 1e9;
@@ -56,6 +56,6 @@ int main(){
         cout << -1;
 
     cout << "\n";
-    
+
     return 0;
 }
