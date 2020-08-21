@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "g++": "-std=c++11",
         "map": "cpp",
         "iostream": "cpp",
         "__debug": "cpp",
@@ -42,6 +43,7 @@
         "vector": "cpp",
         "__tree": "cpp",
         "cmath": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "queue": "cpp"
     }
 }
