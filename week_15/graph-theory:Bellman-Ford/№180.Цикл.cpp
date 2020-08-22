@@ -23,73 +23,95 @@
 using namespace std;
 
 #define pb push_back
+#define mp make_pair
 #define sz(c) (int)((c).size())
 #define all(c) c.begin(),c.end()
+#define rep(i,a,n) for (int i = a; i < n; i++)
+#define fi first
+#define se second
+
 typedef long long ll;
 typedef vector<int> vi;
+typedef vector<bool> vb;
+typedef pair<int, int> pii;
+typedef tuple<int, int, int> tp;
 
 void print(vector<int> &a){
-    for(int i=0; i < a.size(); ++i){
+    cout << a.size() << endl;
+    for(size_t i=0; i < a.size(); ++i){
         cout << a[i] << " ";
     }
-    cout << endl;
 }
 
-int n;
-vector<vi> gr;
+size_t n;
+vector<tp> gr;
 vi dist;
 const int INF = 100000;
+vi parent;
+int s = -1;
 
 void bellman_ford(int x){
     dist = vi(n, INF);
     dist[x] = 0;
-
-    vi p(n, -1);
-    int s = -1;
+    parent = vi(n, -1);
 
     for(int i=0; i < n; ++i){
-        for(int v=0; v < n; ++v){
-            for(int u=0; u < n; ++u){
-                if(dist[v] < INF){
-                    if(dist[u] > dist[v] + gr[v][u]){
-                        dist[u] = max(-INF, dist[v] + gr[v][u]);
-                        p[u] = v;
-                        s = u; 
-                    }
+        for(auto u : gr){
+            int a, b, w;
+            tie(a, b, w) = u;
+            if(dist[a] < INF){
+                if(dist[b] > dist[a] + w){
+                    dist[b] = max(-INF, dist[a] + w);
+                    parent[b] = a;
+                    s = b;
                 }
             }
         }
     }
-
-    if(s == -1){
-        cout << "NO\n";
-    }else{
-        int y = s;
-        for(int i=0; i < n; ++i){
-            y = p[y];
-        }
-        vi path;
-        for(int cur = y; ; cur = p[cur]){
-            path.pb(cur);
-            if(cur == y && path.size() > 1) break;
-        }
-        reverse(all(path));
-        cout << "YES\n";
-        print(path);
-    }
-
 }
 
 void test_case(){
 
     cin >> n;
 
-    gr = vector<vi> (n, vi(n));
+    rep(i, 0, n){
+        rep(j, 0, n){
+            int w;
+            cin >> w;
+            if(w != INF){
+                gr.pb(tie(i,j,w));
+            }
+        }
+    }
 
-    for(int i=0; i < n; ++i)
-        for(int j=0; j < n; ++j)
-            cin >> gr[i][j];
     bellman_ford(0);
+
+    //print(dist);
+
+    if(s == -1){
+        cout << "NO";
+    }else{
+        cout << "YES\n";
+        int y = s;
+        cout << y << endl;
+        for(int i=0; i < n; ++i){
+            y = parent[y];
+        }
+        // print(parent);
+        // return;
+        vi path;
+        for(int cur = y; ; cur = parent[cur]){
+            path.pb(cur);
+            if(cur == y && path.size() > 1) break;
+        }
+        reverse(all(path));
+
+        cout << path.size() << endl;
+        rep(i,0,path.size()){
+            cout << path[i] << " ";
+        }
+        cout << endl;
+    }
 }
 
 int main(){
