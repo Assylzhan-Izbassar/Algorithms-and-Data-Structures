@@ -2,8 +2,7 @@
 
 using namespace std;
 
-struct Node
-{
+struct Node{
     private:
         int value;
 
@@ -11,21 +10,18 @@ struct Node
         Node* next;
         Node* prev;
 
-        Node(int x)
-        {
+        Node(int x){  
             value = x;
             next = NULL;
             prev = NULL;
         }
 
-        int getValue()
-        {
+        int getValue(){
             return value;
         }
 };
 
-struct DoubleLinkedList
-{
+struct DoubleLinkedList{
     private:
         Node* head;
         Node* tail;
@@ -33,31 +29,26 @@ struct DoubleLinkedList
 
     public:
 
-        DoubleLinkedList()
-        {
+        DoubleLinkedList(){
             head = NULL;
             tail = NULL;
             size = 0;
         }
 
-        void push_back(int x)
-        {
-            if(head == NULL)
-            {
+        void push_back(int x){
+            if(head == NULL){
                 tail = new Node(x);
                 head = tail;
             }
-            else
-            {
+            else{
                 tail->next = new Node(x);
                 tail->next->prev = tail;
                 tail = tail->next;
             }
-            size = size + 1;
+            size++;
         }
 
-        void insert(int x, int position)
-        {
+        void insert(int x, int position){
             if(position > size + 1)
             {
                 cout << "Invailid position!" << endl;
@@ -77,16 +68,14 @@ struct DoubleLinkedList
             newElement->next = temp;
             temp->prev = newElement;
 
-            size = size + 1;
+            size++;
         }
 
-        Node* findPostion(int position)
-        {
+        Node* findPostion(int position){
             int index = 1;
             Node* temp = head;
 
-            while(temp != NULL)
-            {
+            while(temp != NULL){
                 if(index != position)
                     break;
                 temp = temp->next;
@@ -95,21 +84,18 @@ struct DoubleLinkedList
             return temp;
         }
 
-        void remove(int x)
-        {
+        void remove(int x){
             Node* checker = find(x);
             if(checker != NULL)
                 remove(checker);
-            else
-            {
+            else{
                 cout << "This element did not contained in the List!" << endl;
                 return;
             }
             size--;
         }
 
-        void remove(Node* element)
-        {
+        void remove(Node* element){
             Node* nextEl = element->next;
             Node* prevEl = element->prev;
             element->prev->next = nextEl;
@@ -117,14 +103,11 @@ struct DoubleLinkedList
             delete(element);
         }
 
-        Node* find(int x)
-        {
+        Node* find(int x){
             Node* result = NULL;
             Node* temp = head;
-            while(temp != NULL)
-            {
-                if(temp->getValue() == x)
-                {
+            while(temp != NULL){
+                if(temp->getValue() == x){
                     result = temp;
                     break;
                 }
@@ -133,8 +116,7 @@ struct DoubleLinkedList
             return result;
         }
 
-        void printList()
-        {
+        void printList(){
             Node*temp = head;
             while(temp != NULL)
             {
@@ -144,8 +126,7 @@ struct DoubleLinkedList
             cout << endl;
         }
 
-        void printReverseList()
-        {
+        void printReverseList(){
             Node*temp = tail;
             while(temp != NULL)
             {
@@ -155,8 +136,7 @@ struct DoubleLinkedList
             cout << endl;
         }
 
-        int getSize()
-        {
+        int getSize(){
             return size;
         }
 };
@@ -165,18 +145,18 @@ int main()
 {
     DoubleLinkedList dll;
 
-    for(size_t i=1; i <= 20; i*=2)
-    {
+    for(size_t i=1; i <= 20; i*=2){
         dll.push_back(i);
     }
+
     cout << dll.getSize() << endl;
-        dll.printList();
-    dll.insert(5,6);//insert(index, value);
+    dll.printList();
+    dll.insert(5,6);
     cout << dll.getSize() << endl;
-        dll.printList();
+    dll.printList();
     dll.remove(9);
     cout << dll.getSize() << endl;
-        dll.printList();
+    dll.printList();
 
     return 0;
 }
