@@ -7,7 +7,8 @@
 **Week 6:**<br/>
 
 >[Heap-Sort](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/heap/heapSort.cpp) <br/>
->[Priority-Queue](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/heap/priorityQueue.cpp) <br/>
+>[Priority-Queue](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_6/heap/priorityQueue.cpp)<br/>
+
 **Week 7:**<br/>
 
 >[Insertion-Sort](https://github.com/Assylzhan-Izbassar/Algorithms-and-Data-Structures/blob/master/week_7/insertionSort.cpp)<br/>
